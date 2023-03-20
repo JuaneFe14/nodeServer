@@ -78,15 +78,15 @@ app.get("/quienessomos", (req, res) => {
   res.sendFile("views/quienessomos.html", { root: __dirname });
 });
 
-app.get("/contactos", (req, res) => {
-  res.send("Estamos en la ruta: /contactos");
+app.post("/contacts", (req, res) => {
+  res.sendFile("views/contacts.html", { root: __dirname });
 });
 
-app.get("/,", (req, res) => {
+app.put("/,", (req, res) => {
   res.send("Estamos en la ruta: /,");
 });
 
-app.get("/students", (req, res) => {
+app.delete("/students", (req, res) => {
   res.send("Estamos en la ruta: /students");
 });
 
