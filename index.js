@@ -58,10 +58,10 @@ app.post("/login", (req, res) => {
     } else if (myUser.rol == "2") {
       res.redirect("/customer");
     } else {
-      res.send("usuario no registrado");
+      res.sendFile("views/autherror.html", { root: __dirname });
     }
   } else {
-    res.send("Paila. Revise a ver ¿Si esta registrado, cv?");
+    res.sendFile("views/autherror.html", { root: __dirname });
   }
 });
 
