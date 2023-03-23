@@ -31,8 +31,6 @@ let users = [
 ];
 
 let myUser;
-let estado = true;
-let rol = 1;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -58,11 +56,15 @@ app.post("/login", (req, res) => {
     } else if (myUser.rol == "2") {
       res.redirect("/customer");
     } else {
-      res.sendFile("views/autherror.html", { root: __dirname });
+      res.redirect("/autherror");
     }
   } else {
-    res.sendFile("views/autherror.html", { root: __dirname });
+    res.redirect("/autherror");
   }
+});
+
+app.get("/autherror", (req, res) => {
+  res.sendFile("views/autherror.html", { root: __dirname });
 });
 
 app.get("/controlpanel", (req, res) => {

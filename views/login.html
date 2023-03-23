@@ -1,51 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <title>Login</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-  <title>Iniciar sesión</title>
-</head>
-
-
-<body>
-  <main class="container-fluid text-center p-5">
-    <div class="row">
-      <div class="col-sm-12 col-md-6">
-        <div class="p-5 mb-4 bg-light rounded-3">
-          <div class="container-fluid text-start">
-            <h1 class="display-5 fw-bold">Iniciar sesión</h1>
-            <p class="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, aliquam maiores! Est
-              neque laudantium voluptatum quisquam similique, iure deleniti debitis repellat optio rem libero tempora,
-              reiciendis corporis impedit quis. Voluptates.</p>
+  <body>
+    <main class="container-fluid text-center p-5">
+      <div class="row my-5">
+        <div class="col-sm-12 col-md-6">
+          <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid text-start">
+              <h1 class="display-5 fw-bold text-primary">Cuatrotales App</h1>
+              <p class="fs-4">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat, aliquam maiores! Est neque laudantium voluptatum
+                quisquam similique, iure deleniti debitis repellat optio rem
+                libero tempora, reiciendis corporis impedit quis. Voluptates.
+              </p>
+            </div>
           </div>
         </div>
+        <div class="col-sm-12 col-md-6">
+          <form
+            action="/login"
+            method="post"
+            class="w-50 h-75 rounded-4 shadow-lg mx-auto p-4 mt-5 border border-primary"
+          >
+            <h2 class="m-3 fw-bolder">Login</h2>
+
+            <div class="form-floating my-2 text-primary">
+              <input
+                type="text"
+                class="form-control border"
+                id="username"
+                name="username"
+                placeholder="user.name"
+              />
+              <label for="username">Username</label>
+            </div>
+            <div class="form-floating my-2 text-primary">
+              <input
+                type="password"
+                class="form-control border"
+                id="password"
+                name="password"
+                placeholder="******"
+              />
+              <label for="password">Password</label>
+            </div>
+
+            <button
+              class="btn btn-lg btn-outline-primary mt-2 shadow"
+              type="submit"
+            >
+              Sign in
+            </button>
+          </form>
+        </div>
       </div>
-      <div class="col-sm-12 col-md-6">
-        <form action="/login" method="post" class="w-50 h-75 rounded-4 shadow-lg mx-auto p-4 mt-5">
-          <h1 class="mb-3 fw-bold">Iniciar sesión</h1>
-
-          <div class="form-floating my-2">
-            <input type="text" class="form-control" id="username" name="username" placeholder="user.name">
-            <label for="username">Username</label>
-          </div>
-          <div class="form-floating my-2">
-            <input type="password" class="form-control" id="password" name="password" placeholder="******">
-            <label for="password">Password</label>
-          </div>
-
-          <button class="btn btn-lg btn-success mt-4" type="submit">Ingresar</button>
-        </form>
+    </main>
+    <footer
+      class="d-flex flex-wrap justify-content-between align-items-center py-2 my-2 border-top fixed-bottom"
+    >
+      <div class="d-flex align-items-center">
+        <a
+          href="/"
+          class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
+        >
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap" />
+          </svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted"
+          >&copy; 2022 Cuatrotales, Inc</span
+        >
       </div>
-    </div>
 
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-</body>
-
+      <ul class="nav justify-content-end list-unstyled d-flex px-3 mx-4">
+        <li class="ms-3">
+          <a class="text-muted" href="#"><i class="bi bi-envelope"></i></a>
+        </li>
+        <li class="ms-3">
+          <a class="text-muted" href="#"><i class="bi bi-instagram"></i></a>
+        </li>
+        <li class="ms-3">
+          <a class="text-muted" href="#"><i class="bi bi-facebook"></i></a>
+        </li>
+      </ul>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
