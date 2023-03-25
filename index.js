@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const http = require("http");
 const port = 2000;
 const app = express();
 
@@ -32,8 +31,6 @@ let users = [
 ];
 
 let myUser;
-let estado = true;
-let rol = 1;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -59,11 +56,15 @@ app.post("/login", (req, res) => {
     } else if (myUser.rol == "2") {
       res.redirect("/customer");
     } else {
-      res.send("usuario no registrado");
+      res.redirect("/autherror");
     }
   } else {
-    res.send("Paila. Revise a ver ¿Si esta registrado, cv?");
+    res.redirect("/autherror");
   }
+});
+
+app.get("/autherror", (req, res) => {
+  res.sendFile("views/autherror.html", { root: __dirname });
 });
 
 app.get("/controlpanel", (req, res) => {
