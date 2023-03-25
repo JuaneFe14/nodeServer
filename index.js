@@ -39,13 +39,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.sendFile("views/login.html", { root: __dirname });
+  if (myUser) {
+    if (myUser.username == "" && myUser.password == "" && myUser.rol == "") {
+      if (myUser.rol == "1") {
+        res.redirect("/controlpanel");
+      } else if (myUser.rol == "2") {
+        res.redirect("/customer");
+      } else {
+        res.redirect("/autherror");
+      }
+    } else {
+      res.sendFile("views/login.html", { root: __dirname });
+    }
+  } else {
+    res.sendFile("views/login.html", { root: __dirname });
+  }
 });
 
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body);
-
   let userFind = users.find(
     (user) => user.username == username && user.password == password
   );
@@ -68,19 +80,35 @@ app.get("/autherror", (req, res) => {
 });
 
 app.get("/controlpanel", (req, res) => {
-  res.sendFile("views/controlpanel.html", { root: __dirname });
+  if (myUser.rol === "1") {
+    res.sendFile("views/controlpanel.html", { root: __dirname });
+  } else {
+    res.sendFile("views/autherror.html", { root: __dirname });
+  }
 });
 
 app.get("/customer", (req, res) => {
-  res.sendFile("views/customer.html", { root: __dirname });
+  if (myUser.rol === "2") {
+    res.sendFile("views/customer.html", { root: __dirname });
+  } else {
+    res.sendFile("views/autherror.html", { root: __dirname });
+  }
 });
 
-app.get("/quienessomos", (req, res) => {
-  res.sendFile("views/quienessomos.html", { root: __dirname });
+app.get("/weare", (req, res) => {
+  if (myUser.rol === "2") {
+    res.sendFile("views/weare.html", { root: __dirname });
+  } else {
+    res.sendFile("views/autherror.html", { root: __dirname });
+  }
 });
 
 app.post("/contacts", (req, res) => {
-  res.sendFile("views/contacts.html", { root: __dirname });
+  if (myUser.rol === "2") {
+    res.sendFile("views/contacts.html", { root: __dirname });
+  } else {
+    res.sendFile("views/autherror.html", { root: __dirname });
+  }
 });
 
 app.put("/,", (req, res) => {
